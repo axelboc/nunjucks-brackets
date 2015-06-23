@@ -1,4 +1,4 @@
 nunjucks-brackets
 =================
 
-[https://mozilla.github.io/nunjucks/ Nunjucks syntax] highlighter for [http://brackets.io/ Brackets].
+[Nunjucks](https://mozilla.github.io/nunjucks/) syntax highlighter for [Brackets](http://brackets.io/).
