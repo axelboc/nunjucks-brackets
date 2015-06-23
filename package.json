@@ -1,0 +1,16 @@
+{
+    "name": "nunjucks-brackets",
+    "title": "Nunjucks syntax highlighter",
+    "description": "Enables Nunjucks highlighting in Brackets.",
+    "homepage": "https://github.com/axelboc/nunjucks-brackets/",
+    "version": "0.0.1",
+    "author": {
+        "name": "Axel Bocciarelli",
+        "url": "https://github.com/axelboc/"
+    },
+    "license": "MIT",
+    "categories": "language",
+    "engines": {
+        "brackets": ">=0.24.0"
+    }
+}
