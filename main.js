@@ -13,38 +13,35 @@ define(function (require, exports, module) {
 		// Define a new CodeMirror simple mode 
 		CodeMirror.defineSimpleMode("nunjucks", {
 			start: [
-				{ regex: /\{\{!--/, push: "dash_comment", token: "comment" },
-				{ regex: /\{\{!/,   push: "comment", token: "comment" },
-				{ regex: /\{\{/,    push: "handlebars", token: "tag" }
+				{ regex: /\{\{/, push: "expression", token: "tag" },
+				{ regex: /\{\%\-?/, push: "block", token: "tag" },
+				{ regex: /\{\#/, push: "comment", token: "comment" }
 			],
-			handlebars: [
-				{ regex: /\}\}/, pop: true, token: "tag" },
+			expression: [
+				{ regex: /}}/, pop: true, token: "tag" }
+			],
+			block: [
+				{ regex: /\-?\%\}/, pop: true, token: "tag" },
 
 				// Double and single quotes
 				{ regex: /"(?:[^\\]|\\.)*?"/, token: "string" },
 				{ regex: /'(?:[^\\]|\\.)*?'/, token: "string" },
 
 				// Handlebars keywords
-				{ regex: />|[#\/]([A-Za-z_]\w*)/, token: "keyword" },
-				{ regex: /(?:else|this)\b/, token: "keyword" },
+//				{ regex: />|[#\/]([A-Za-z_]\w*)/, token: "keyword" },
+//				{ regex: /(?:else|this)\b/, token: "keyword" },
 
 				// Numeral
 				{ regex: /\d+/i, token: "number" },
 
 				// Atoms like = and .
-				{ regex: /=|~|@|true|false/, token: "atom" },
+//				{ regex: /=|~|@|true|false/, token: "atom" },
 
 				// Paths
-				{ regex: /(?:\.\.\/)*(?:[A-Za-z_][\w\.]*)+/, token: "variable-2" }
-			],
-			dash_comment: [
-				{ regex: /--\}\}/, pop: true, token: "comment" },
-
-				// Commented code
-				{ regex: /./, token: "comment"}
+//				{ regex: /(?:\.\.\/)*(?:[A-Za-z_][\w\.]*)+/, token: "variable-2" }
 			],
 			comment: [
-				{ regex: /\}\}/, pop: true, token: "comment" },
+				{ regex: /\#\}/, pop: true, token: "comment" },
 				{ regex: /./, token: "comment" }
 			]
 
