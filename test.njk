@@ -8,13 +8,12 @@
 {% include "item.html" %}
 
 {% set username = "joe" %}
-{{ username | replace("joe", "jen") | capitalize }}
+{{ username|replace("joe", "jen")|capitalize }}
 
 {{ foo.bar }}
 {{ foo["bar"] }}
-{{ 10 / 5 }}
+{{ 10 / 5.3 }}
 {{ numItems * 2 }}
-{{ /^foo.*/ }}
 
 {{ "true" if foo else "false" }}
 
@@ -43,6 +42,6 @@
 {%- endcall %}
 
 {% raw %}
-  this will {{ not be processed }}
+  <p>This will {{ not be processed }}</p>
 {% endraw %}
 
