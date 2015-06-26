@@ -3,7 +3,7 @@
   "title": "Nunjucks syntax highlighter",
   "description": "Extension for Brackets providing syntax highlighting for the Nunjucks templating language.",
   "homepage": "https://github.com/axelboc/nunjucks-brackets/",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Axel Bocciarelli",
     "url": "https://github.com/axelboc/"
