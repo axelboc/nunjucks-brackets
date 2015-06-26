@@ -39,8 +39,9 @@ define(function (require, exports, module) {
 				// Numeral
 				{ regex: /\b\d+(?:\.\d+)?\b/, token: "number" },
 
-				// Operators
+				// Operators and punctuation
 				{ regex: /(?:\=|\+|\-|\/|\*|%|\!|<|>)/, token: "operator" },
+				{ regex: /(?:\.|,)/, token: "punctuation" },
 				
 				// Functions and filters
 				{ regex: /\w+(?=\()/, token: "def" },

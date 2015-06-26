@@ -35,7 +35,7 @@
 {% endblock %}
 
 {% macro button(id, type='button') %}
-	<button id="{{ id }}" type="{{ type }}">{{ caller() }}
+	<button id="{{ id }}" type="{{ foo.type }}">{{ caller() }}
 {% endmacro %}
 
 {% call button('test', 'submit') -%}
