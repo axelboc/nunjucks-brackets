@@ -44,7 +44,7 @@ define(function (require, exports, module) {
 				
 				// Functions and filters
 				{ regex: /\w+(?=\()/, token: "def" },
-				{ regex: /(\|)(\w+)/, token: ["operator", "def"] },
+				{ regex: /(\|)( ?)(\w+)/, token: ["operator", null, "def"] },
 				
 				// Variable
 				{ regex: /\w+/, token: "variable" }
@@ -68,7 +68,7 @@ define(function (require, exports, module) {
 		LanguageManager.defineLanguage("nunjucks", {
 			name: "Nunjucks",
 			mode: "nunjucks",
-			fileExtensions: ["html", "nunjucks", "njk"],
+			fileExtensions: ["html", "htm", "nunjucks", "njk"],
 			blockComment: ["{#", "#}"],
 			lineComment: ["{#", "#}"]
 		});
