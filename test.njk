@@ -9,6 +9,7 @@
 
 {% set username = "joe" %}
 {{ username|replace("joe", "jen")|capitalize }}
+{{ username | replace("joe", "jen") | capitalize }}
 
 {{ foo.bar }}
 {{ foo["bar"] }}
