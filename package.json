@@ -1,7 +1,7 @@
 {
   "name": "nunjucks-brackets",
-  "title": "Nunjucks syntax highlighter for Brackets",
-  "description": "Brackets extension that provides syntax highlighting for the Nunjucks templating language.",
+  "title": "Nunjucks syntax highlighter",
+  "description": "Extension for Brackets providing syntax highlighting for the Nunjucks templating language.",
   "homepage": "https://github.com/axelboc/nunjucks-brackets/",
   "version": "1.0.0",
   "author": {
