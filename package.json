@@ -1,12 +1,12 @@
 {
-  "name": "nunjucks-brackets",
-  "title": "Nunjucks syntax highlighter",
-  "description": "Extension for Brackets providing syntax highlighting for the Nunjucks templating language.",
-  "homepage": "https://github.com/axelboc/nunjucks-brackets/",
-  "version": "1.0.1",
+  "name": "foxpro-brackets",
+  "title": "Visual FoxPro syntax highlighter",
+  "description": "Extension for Brackets providing syntax highlighting for the Visual FoxPro database development language.",
+  "homepage": "https://github.com/DaseinUXD/foxpro-brackets/",
+  "version": "0.09",
   "author": {
-    "name": "Axel Bocciarelli",
-    "url": "https://github.com/axelboc/"
+    "name": "Mark W. Matthews",
+    "url": "https://github.com/DaseinUXD/"
   },
   "license": "MIT",
   "categories": "language",
