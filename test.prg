@@ -1,0 +1,48 @@
+<< extends "base.html" >>
+
+<< import "forms.html" as forms >>
+<< from "forms.html" import field, label as description >>
+
+{# This is a comment #}
+
+<< include "item.html" >>
+
+<< set username = "joe" >>
+<< username|replace("joe", "jen")|capitalize >>
+<< username | replace("joe", "jen") | capitalize >>
+
+<< foo.bar >>
+<< foo["bar"] >>
+<< 10 / 5.3 >>
+<< numItems * 2 >>
+
+<< "true" if foo else "false" >>
+
+<< if hungry == 'yes' and (foo or not bar) >>
+  <p>I am hungry</p>
+<< elif tired >>
+  <p>I am tired</p>
+<< else >>
+  <p>I am good!</p>
+<< endif >>
+
+<< block content >>
+	<ul>
+		<< for name, item in items >>
+			<li><< name >>: << item >></li>
+		<< endfor >>
+	</ul>
+<< endblock >>
+
+<< macro button(id, type='button') >>
+	<button id="<< id >>" type="<< foo.type >>"><< caller() >>
+<< endmacro >>
+
+<< call button('test', 'submit') ->>
+	<span>Hello World</span>
+<<- endcall >>
+
+<< raw >>
+  <p>This will << not be processed >></p>
+<< endraw >>
+
