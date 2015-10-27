@@ -1,7 +1,7 @@
 {
-  "name": "foxpro-brackets",
-  "title": "Visual FoxPro syntax highlighter",
-  "description": "Extension for Brackets providing syntax highlighting for the Visual FoxPro database development language.",
+  "name": "digital-alchemy-brackets",
+  "title": "Digital Alchemy merge-text templating syntax highlighter",
+  "description": "Extension for Brackets providing syntax highlighting for a templating language developed in MS Visual FoxPro.",
   "homepage": "https://github.com/DaseinUXD/foxpro-brackets/",
   "version": "0.09",
   "author": {
