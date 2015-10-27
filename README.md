@@ -1,13 +1,12 @@
-nunjucks-brackets
+digital-alchemy-brackets
 =================
 
-[Nunjucks](https://mozilla.github.io/nunjucks/) syntax highlighter for [Brackets](http://brackets.io/).
+A syntax highlighter for [Brackets](http://brackets.io/) for developing CRM emails using a text-merge templating language developved by [Digial Alchemy](http://www.digital-alchemy.com) using [MS Visual FoxPro](https://msdn.microsoft.com/en-us/library/ms950411.aspx).
 
-This extension defines a new CodeMirror mode named `nunjucks`. The mode is combined with CodeMirror's existing HTML mixed mode, so that any HTML code placed inside a Nunjucks block gets properly highlighted. The `nunjucks` mode is mapped to the following file extensions:
+This extension "adapts" a  new CodeMirror mode named `nunjucks` by `axelboc.
 
-- `html`
-- `htm`
-- `nunjucks`
-- `njk`
+Instead of using an overlay like nunjucks, I used a Multiplexer mode.  The multiplexed mode is mapped to the following file extension:
 
-Note that this is a very rough implementation, which is not meant to cover the entire Nunjucks grammar. Contributions most welcome.
+- `da-html`
+
+Note that this is a *very* rough implementation.

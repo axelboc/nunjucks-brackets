@@ -1,78 +1,29 @@
+// Code Mirror: Multiplexing Parsing of Digital Alchemy's merge-
+// text templating language (based on/built with MS Visual FoxPro
 
-define(function (require, exports, module) {
-	'use strict';
-	
-	var LanguageManager = brackets.getModule("language/LanguageManager");
-	
-	// Load CodeMirror with the simple mode addon
-	brackets.getModule([
-		"thirdparty/CodeMirror2/lib/codemirror",
-		"thirdparty/CodeMirror2/addon/mode/simple"
-	], function (CodeMirror) {
-		
-		// Define a new CodeMirror simple mode 
-		CodeMirror.defineSimpleMode("njk", {
-			start: [
-				{ regex: /{% raw %}/, token: "tag", mode: { spec: "htmlmixed", end: /{% endraw %}/ } },
-				{ regex: /\{\{/, push: "block", token: "tag" },
-				{ regex: /\{\%\-?/, push: "block", token: "tag" },
-				{ regex: /\{\#/, push: "comment", token: "comment" }
-			],
-			block: [
-				{ regex: /}}/, pop: true, token: "tag" },
-				{ regex: /\-?\%\}/, pop: true, token: "tag" },
+define (function (require, exports, module) {
+  var CodeMirror = brackets.getModule ("thirdparty/CodeMirror/lib/codemirror");
+  var LanguageManager = brackets.getModule ("language/LanguageManager");
 
-				// Double and single quotes
-				{ regex: /"(?:[^\\]|\\.)*?"/, token: "string" },
-				{ regex: /'(?:[^\\]|\\.)*?'/, token: "string" },
 
-				// Keywords
-				{ regex: /\b(?:block|if|for|macro|call|raw)\b/, token: "keyword" },
-				{ regex: /\b(?:endblock|endif|endfor|endmacro|endcall|endraw)\b/, token: "keyword" },
-				{ regex: /\b(?:extends|include|elif|else|import|set)\b/, token: "keyword" },
-				{ regex: /\b(?:asyncEach|endeach|asyncAll|endall)\b/, token: "keyword" },
-				{ regex: /\b(?:and|or|not|in|as|from)\b/, token: "keyword" },
-				
-				// Atoms
-				{ regex: /\b(?:true|false)\b/, token: "atom" },
-
-				// Numeral
-				{ regex: /\b\d+(?:\.\d+)?\b/, token: "number" },
-
-				// Operators and punctuation
-				{ regex: /(?:\=|\+|\-|\/|\*|%|\!|<|>)/, token: "operator" },
-				{ regex: /(?:\.|,)/, token: "punctuation" },
-				
-				// Functions and filters
-				{ regex: /\w+(?=\()/, token: "def" },
-				{ regex: /(\|)( ?)(\w+)/, token: ["operator", null, "def"] },
-				
-				// Variable
-				{ regex: /\w+/, token: "variable" }
-			],
-			comment: [
-				{ regex: /\#\}/, pop: true, token: "comment" },
-				{ regex: /./, token: "comment" }
-			]
-
-		});
-		
-		// Overlay the new mode with CodeMirror's HTML mode
-		CodeMirror.defineMode("nunjucks", function(config, parserConfig) {
-			return CodeMirror.overlayMode(
-				CodeMirror.getMode(config, "htmlmixed"),
-				CodeMirror.getMode(config, "njk")
-			);
-		});
-
-		// Let Brackets know about the new language
-		LanguageManager.defineLanguage("nunjucks", {
-			name: "Nunjucks",
-			mode: "nunjucks",
-			fileExtensions: ["html", "htm", "nunjucks", "njk"],
-			blockComment: ["{#", "#}"],
-			lineComment: ["{#", "#}"]
-		});
-		
-	});
+    // Define a new CodeMirror simple mode
+    CodeMirror.defineMode("da-html", function(config) {
+      return CodeMirror.multiplexingMode (
+        CodeMirror.getMode(config, "text/html"),
+          {open: "<<", close: ">>",
+            mode: CodeMirror.getMode(config, "text/plain"),
+             delimstyle: "delimit"}
+        // add style to innerStyle with a tag if desired
+      // .. more multiplexed styles could follow here
+        parseDelimiters: true
+      );
 });
+    // Let Brackets know about the new language
+    LanguageManager.defineLanguage("da-html", {
+      name: "DA-Merge-Text",
+      mode: "da-html",
+      fileExtensions: ["da_html"],
+    });
+
+  });
+
